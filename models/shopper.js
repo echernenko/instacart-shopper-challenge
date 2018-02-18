@@ -4,44 +4,44 @@ const DataTypes = require('sequelize/lib/data-types');
 const Shopper = sequelize.define('applicants', {
     first_name: {
         type: DataTypes.STRING,
-        required: true
+        required: true,
     },
     last_name: {
         type: DataTypes.STRING,
-        required: true
+        required: true,
     },
     region: {
         type: DataTypes.STRING,
-        required: true
+        required: true,
     },
     phone: {
         type: DataTypes.STRING,
-        required: true
+        required: true,
     },
     email: {
         type: DataTypes.STRING,
-        required: true
+        required: true,
     },
     phone_type: {
         type: DataTypes.STRING,
-        required: true
+        required: true,
     },
     source: {
         type: DataTypes.STRING,
-        required: false
+        required: false,
     },
     over_21: {
         type: DataTypes.BOOLEAN,
-        required: false
+        required: false,
     },
     reason: {
         type: DataTypes.TEXT,
-        required: false
+        required: false,
     },
     workflow_state: {
         type: DataTypes.STRING,
         required: true,
-        defaultValue: 'applied'
+        defaultValue: 'applied',
     },
     createdAt: {
         type: DataTypes.DATE,
@@ -49,10 +49,10 @@ const Shopper = sequelize.define('applicants', {
     },
     updatedAt: {
         type: DataTypes.DATE,
-        field: 'updated_at'
+        field: 'updated_at',
     },
 }, {
-    freezeTableName: true
+    freezeTableName: true,
 });
 
 Shopper.sync();

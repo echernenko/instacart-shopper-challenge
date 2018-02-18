@@ -2,14 +2,13 @@ const Shopper = require('../models/shopper');
 const Constants = require('../models/constants');
 
 const shopperChallengeRoutes = (app) => {
-
-    const STATUSES = Constants.STATUSES;
-    const REGIONS = Constants.REGIONS;
+    const { STATUSES } = Constants;
+    const { REGIONS } = Constants;
 
     app.get('/', (req, res) => {
         // showing filled in application if available
         if (req.session.email) {
-            return res.redirect('/shopper?email=' + req.session.email);
+            return res.redirect(`/shopper?email=${req.session.email}`);
         }
         res.render('main-form', { REGIONS });
     });
@@ -21,8 +20,8 @@ const shopperChallengeRoutes = (app) => {
         // the same email
         Shopper.destroy({
             where: {
-                email: req.body.email
-            }
+                email: req.body.email,
+            },
         });
         Shopper.upsert(req.body).then(() => {
             // set email to session
@@ -37,13 +36,12 @@ const shopperChallengeRoutes = (app) => {
         const { email } = req.query;
         Shopper.findOne({
             where: {
-                email
-            }
+                email,
+            },
         }).then((shopper) => {
             res.render('main-form', { shopper, STATUSES, REGIONS });
         });
     });
-
 };
 
 module.exports = shopperChallengeRoutes;

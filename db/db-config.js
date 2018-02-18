@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const Op = Sequelize.Op;
+const { Op } = Sequelize;
 const sequelize = new Sequelize('mydb', null, null, {
     host: 'localhost',
     dialect: 'sqlite',
@@ -9,10 +9,10 @@ const sequelize = new Sequelize('mydb', null, null, {
     pool: {
         max: 5,
         min: 0,
-        idle: 10000
+        idle: 10000,
     },
     storage: './db/applicants.sqlite3',
-    operatorsAliases: Op
+    operatorsAliases: Op,
 });
 
 module.exports = sequelize;
