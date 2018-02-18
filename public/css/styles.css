@@ -1,5 +1,5 @@
 .background {
-    background: green;
+    background: transparent no-repeat center/cover url(/static/img/bg.jpg);
     width: 100%;
 }
 .col--centered {
@@ -15,5 +15,17 @@
     width: 100%;
     height: 3rem;
 }
-
-
+.inner {
+    display: table-cell;
+}
+.positions-section {
+    width: 50%;
+    padding: 1.5rem;
+    display: table-cell;
+}
+.positions-section img {
+    width: 90%;
+}
+.positions-role {
+    margin-top: 1rem;
+}
