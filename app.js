@@ -20,11 +20,7 @@ app.set('view engine', 'pug');
 // starting DB connection
 require('./db/db-config');
 
-// app root path
-app.get('/', (req, res) => {
-    res.render('main-form');
-});
-// covering additional app paths
+// app paths
 require('./controllers/main-flow')(app);
 
 module.exports = app;

@@ -10,15 +10,15 @@ body
                         div.form-group
                             h2 Get paid to shop!
                         div.form-group
-                            label(for="firstname") First Name
-                            input#firstname.form-control(type="text",
-                                name="firstname",
+                            label(for="first_name") First Name
+                            input#first_name.form-control(type="text",
+                                name="first_name",
                                 placeholder="e.g. Jamie",
                                 required)
                         div.form-group
-                            label(for="lastname") Last Name
-                            input#lastname.form-control(type="text",
-                                name="lastname",
+                            label(for="last_name") Last Name
+                            input#last_name.form-control(type="text",
+                                name="last_name",
                                 placeholder="e.g. Adams",
                                 required)
                         div.form-group
@@ -35,9 +35,9 @@ body
                                 required)
                         div.form-group
                             label(for="region") Region
-                            input#region.form-control(type="text",
-                                name="region",
-                                required)
+                            select#region.form-control(name="region", required)
+                                each val in REGIONS
+                                    option(value=val) #{val}
 
                         button.btn.btn-primary.btn-success.btn--main-cta(type="submit") Apply Now
     //- some advertising how cool to be a shopper

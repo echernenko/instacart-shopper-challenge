@@ -4,6 +4,11 @@ const Constants = require('../models/constants');
 const shopperChallengeRoutes = (app) => {
 
     const STATUSES = Constants.STATUSES;
+    const REGIONS = Constants.REGIONS;
+
+    app.get('/', (req, res) => {
+        res.render('main-form', { REGIONS });
+    });
 
     app.post('/shopper', (req, res) => {
         // due to dev app nature and in general assumption,
@@ -31,7 +36,7 @@ const shopperChallengeRoutes = (app) => {
             },
             order: [['createdAt', 'DESC']]
         }).then((shopper) => {
-            res.render('main-form', { shopper, STATUSES });
+            res.render('main-form', { shopper, STATUSES, REGIONS });
         });
     });
 

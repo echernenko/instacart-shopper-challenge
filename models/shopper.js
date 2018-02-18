@@ -1,12 +1,12 @@
 const sequelize = require('../db/db-config');
 const DataTypes = require('sequelize/lib/data-types');
 
-const Shopper = sequelize.define('shopper', {
-    firstname: {
+const Shopper = sequelize.define('applicants', {
+    first_name: {
         type: DataTypes.STRING,
         required: true
     },
-    lastname: {
+    last_name: {
         type: DataTypes.STRING,
         required: true
     },
@@ -42,6 +42,14 @@ const Shopper = sequelize.define('shopper', {
         type: DataTypes.STRING,
         required: true,
         defaultValue: 'applied'
+    },
+    createdAt: {
+        type: DataTypes.DATE,
+        field: 'created_at',
+    },
+    updatedAt: {
+        type: DataTypes.DATE,
+        field: 'updated_at'
     },
 }, {
     freezeTableName: true
