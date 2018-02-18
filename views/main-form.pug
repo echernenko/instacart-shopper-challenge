@@ -1,6 +1,45 @@
 include header.pug
 
 body
-    shopper challenge
+    div.background
+
+        div.container
+            div.row
+                div.col--centered.col--fixed-width
+                    form(action="/shopper",method="POST")
+                        div.form-group
+                            h2 Get paid to shop!
+                        div.form-group
+                            label(for="firstname") First Name
+                            input#firstname.form-control(type="text",
+                                name="firstname",
+                                placeholder="e.g. Jamie",
+                                required)
+                        div.form-group
+                            label(for="lastname") Last Name
+                            input#lastname.form-control(type="text",
+                                name="lastname",
+                                placeholder="e.g. Adams",
+                                required)
+                        div.form-group
+                            label(for="email") Email
+                            input#email.form-control(type="email",
+                                name="email",
+                                placeholder="e.g. example@gmail.com",
+                                required)
+                        div.form-group
+                            label(for="phone") Cell Phone Number
+                            input#phone.form-control(type="text",
+                                name="phone",
+                                placeholder="e.g. 1-541-754-3010",
+                                required)
+                        div.form-group
+                            label(for="zip") Zip code
+                            input#zip.form-control(type="text",
+                                name="zip",
+                                placeholder="e.g. 94122",
+                                required)
+
+                        button.btn.btn-primary.btn-success.btn--main-cta(type="submit") Apply Now
 
     include footer.pug
