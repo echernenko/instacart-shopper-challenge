@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "start": "npm install; node server.js",
-    "test": "node test/app.js",
+    "test": "node test/app.js | tap-spec",
     "lint": "eslint **/*.js --fix --ignore-pattern node_modules/"
   },
   "author": "Eugene Chernenko",
@@ -22,6 +22,9 @@
   "devDependencies": {
     "eslint": "^4.18.0",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.8.0"
+    "eslint-plugin-import": "^2.8.0",
+    "supertest": "^3.0.0",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.8.0"
   }
 }
