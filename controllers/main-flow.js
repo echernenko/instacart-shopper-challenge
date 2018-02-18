@@ -7,6 +7,10 @@ const shopperChallengeRoutes = (app) => {
     const REGIONS = Constants.REGIONS;
 
     app.get('/', (req, res) => {
+        // showing filled in application if available
+        if (req.session.email) {
+            return res.redirect('/shopper?email=' + req.session.email);
+        }
         res.render('main-form', { REGIONS });
     });
 
@@ -21,8 +25,9 @@ const shopperChallengeRoutes = (app) => {
             }
         });
         Shopper.upsert(req.body).then(() => {
-            // set email on session
+            // set email to session
             // so application loads next time
+            // with pre-filled date
             req.session.email = req.body.email;
             res.render('info-updated');
         });
@@ -33,8 +38,7 @@ const shopperChallengeRoutes = (app) => {
         Shopper.findOne({
             where: {
                 email
-            },
-            order: [['createdAt', 'DESC']]
+            }
         }).then((shopper) => {
             res.render('main-form', { shopper, STATUSES, REGIONS });
         });
