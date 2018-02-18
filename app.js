@@ -9,6 +9,8 @@ app.use(session({
     saveUninitialized: true
 }));
 
+// setting up static folder
+app.use('/static', express.static('public'));
 // defining view engine
 app.set('view engine', 'pug');
 
