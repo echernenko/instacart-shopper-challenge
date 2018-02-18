@@ -1,0 +1,11 @@
+{
+  "name": "instacart-shopper-challenge",
+  "version": "1.0.0",
+  "description": "Instacart Shopper Challenge Test",
+  "main": "server.js",
+  "scripts": {
+    "test": "node test/app.js"
+  },
+  "author": "Eugene Chernenko",
+  "license": "ISC"
+}
