@@ -22,5 +22,6 @@ require('./db/db-config');
 
 // app paths
 require('./controllers/main-flow')(app);
+require('./controllers/analysis')(app);
 
 module.exports = app;
