@@ -6,6 +6,7 @@ const app = require('../app');
 // and then checking same endpoint for it
 const appStructure = {
     '/': 'html',
+    '/analysis.json': 'json',
 };
 
 for (const prop in appStructure) {

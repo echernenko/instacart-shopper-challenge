@@ -5,7 +5,7 @@ const sequelize = new Sequelize('mydb', null, null, {
     host: 'localhost',
     dialect: 'sqlite',
     // disable logging
-    // logging: false,
+    logging: false,
     pool: {
         max: 5,
         min: 0,
