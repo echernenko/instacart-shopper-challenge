@@ -6,6 +6,10 @@ Instructions to run:
 - Latest version of node is required.
 - (optional) you can add sample applicants.sqlite3 file or
   it will be created autometically in db/ folder
+- analysis script currently runs only under /analysis.json
+  endpoint via webserver; I've installed package json2csv
+  and was planning to feed to it .json to produce output in
+  .csv format
 
 Optional commands:
 - linting files `npm run lint`

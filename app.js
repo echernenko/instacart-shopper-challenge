@@ -1,8 +1,9 @@
 const express = require('express');
-const app = express();
 const session = require('express-session');
 const bodyParser = require('body-parser');
 
+// initialising app
+const app = express();
 // initialising session
 app.use(session({
     secret: 'sh0pper challenge',
