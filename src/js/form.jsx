@@ -15,17 +15,41 @@ class ShopperForm extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('A form was submitted: ' + this.state.value);
+    // TODO: add form validation
     // event.preventDefault();
   }
 
   render() {
+    // helper renderers
+    // TODO: move from here
     const regionRows = [];
     Shopper.REGIONS.forEach((region, index) => {
         regionRows.push(
-            <option key={index} value={region}>{region}</option>
+            <option key={'region-' + index} value={region}>{region}</option>
         );
     });
+    const statusRows = [];
+    Shopper.STATUSES.forEach((state, index) => {
+        statusRows.push(
+            <option key={'state-' + index} value={state}>{state}</option>
+        );
+    });
+
+    const editStatusBlock = [];
+    if (Shopper.DATA.workflow_state) {
+        editStatusBlock.push(
+            <div className="form-group">
+                <label htmlFor="workflow_state">Workflow State</label>
+                <select id="workflow_state" className="form-control"
+                    name="workflow_state"
+                    value={this.state.workflow_state} onChange={this.handleChange}
+                    required>
+                    {statusRows}
+                </select>
+            </div>
+
+        );
+    }
 
     return (
       <form action="/shopper" method="POST" onSubmit={this.handleSubmit}>
@@ -72,14 +96,16 @@ class ShopperForm extends React.Component {
         <div className="form-group">
             <label htmlFor="region">Region</label>
             <select id="region" className="form-control"
+                value={this.state.region} onChange={this.handleChange}
                 name="region" required>
                 {regionRows}
             </select>
         </div>
+        {editStatusBlock}
         <input type="submit" className="btn btn-primary btn-success btn--main-cta" value="Apply Now" />
       </form>
     );
-  }
+  }c
 }
 
 render(<ShopperForm />, document.getElementById('form-container'));
