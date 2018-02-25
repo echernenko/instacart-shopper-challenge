@@ -1,0 +1,67 @@
+include header.pug
+
+body
+    div.background
+
+        div.container
+            div.row
+                div.col--centered.col--fixed-width
+                    form(action="/shopper",method="POST")
+                        div.form-group
+                            - if (shopper) {
+                                h2 Happy to see you back!
+                            - } else {
+                                h2 Get paid to shop!
+                            - }
+                        div.form-group
+                            label(for="first_name") First Name
+                            input#first_name.form-control(type="text",
+                                name="first_name",
+                                placeholder="e.g. Jamie",
+                                value=(shopper ? shopper.first_name : ''),
+                                required)
+                        div.form-group
+                            label(for="last_name") Last Name
+                            input#last_name.form-control(type="text",
+                                name="last_name",
+                                value=(shopper ? shopper.last_name : ''),
+                                placeholder="e.g. Adams",
+                                required)
+                        div.form-group
+                            label(for="email") Email
+                            input#email.form-control(type="email",
+                                name="email",
+                                value=(shopper ? shopper.email : ''),
+                                placeholder="e.g. example@gmail.com",
+                                required)
+                        div.form-group
+                            label(for="phone") Cell Phone Number
+                            input#phone.form-control(type="text",
+                                name="phone",
+                                value=(shopper ? shopper.phone : ''),
+                                placeholder="e.g. 1-541-754-3010",
+                                required)
+                        div.form-group
+                            label(for="region") Region
+                            select#region.form-control(name="region", required)
+                                each val in REGIONS
+                                    option(value=val, selected=(shopper && shopper.region == val ? 'selected' : false)) #{val}
+                        //- Updating status of the application - DEV only feature
+                        - if (shopper) {
+                            div.form-group
+                                label.text-danger(for="workflow_state") Workflow state (for dev app only!)
+                                select#workflow_state.form-control(name="workflow_state")
+                                    each val in STATUSES
+                                        option(value=val selected=(shopper && shopper.workflow_state == val ? 'selected' : false)) #{val}
+                        - }
+
+                        - if (shopper) {
+                            button.btn.btn-primary.btn-success.btn--main-cta(type="submit") Update Details
+                        - } else {
+                            button.btn.btn-primary.btn-success.btn--main-cta(type="submit") Apply Now
+                        - }
+
+    //- some advertising how cool to be a shopper
+    include promo.pug
+
+    include footer.pug
