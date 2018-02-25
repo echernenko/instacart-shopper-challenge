@@ -25,20 +25,20 @@ class ShopperForm extends React.Component {
     const regionRows = [];
     Shopper.REGIONS.forEach((region, index) => {
         regionRows.push(
-            <option key={'region-' + index} value={region}>{region}</option>
+            <option key={index} value={region}>{region}</option>
         );
     });
     const statusRows = [];
     Shopper.STATUSES.forEach((state, index) => {
         statusRows.push(
-            <option key={'state-' + index} value={state}>{state}</option>
+            <option key={index} value={state}>{state}</option>
         );
     });
 
     const editStatusBlock = [];
     if (Shopper.DATA.workflow_state) {
         editStatusBlock.push(
-            <div className="form-group">
+            <div key={String(Math.random()).substr(2,3)} className="form-group">
                 <label htmlFor="workflow_state">Workflow State</label>
                 <select id="workflow_state" className="form-control"
                     name="workflow_state"
