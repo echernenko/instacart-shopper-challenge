@@ -1,1 +1,24 @@
+script.
+    var Shopper = {
+        REGIONS: '#{REGIONS}'.split(','),
+        DATA: {
+            first_name: null,
+            last_name: null,
+            email: null,
+            phone: null,
+            region: null,
+            workflow_status: null
+        }
+    };
+    if (Boolean('#{shopper}')) {
+        Shopper.DATA = {
+            first_name: '#{shopper && shopper.first_name}',
+            last_name: '#{shopper && shopper.last_name}',
+            email: '#{shopper && shopper.email}',
+            phone: '#{shopper && shopper.phone}',
+            region: '#{shopper && shopper.region}',
+            workflow_state: '#{shopper && shopper.workflow_state}'
+        }
+
+    }
 script(src="/static/js/bundle.js")
