@@ -1,3 +1,4 @@
 node_modules/
+public/js/bundle.js
 db/applicants.sqlite3
 *.swp
