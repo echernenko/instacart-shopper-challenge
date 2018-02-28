@@ -52,7 +52,7 @@ class ShopperForm extends React.Component {
     }
 
     return (
-      <form action="/shopper" method="POST" onSubmit={this.handleSubmit}>
+      <form action="/shopper" method="POST" noValidate className="needs-validation" onSubmit={this.handleSubmit}>
         <div className="form-group">
             <h2>Get paid to shop!</h2>
         </div>
@@ -64,7 +64,12 @@ class ShopperForm extends React.Component {
                 name="first_name" placeholder="e.g. Jamie"
                 value={this.state.first_name}
                 onChange={this.handleChange}
+                pattern="[A-Za-z]{2,}"
                 required />
+            <div className="invalid-feedback">
+               Please provide a valid first name.
+            </div>
+
         </div>
         <div className="form-group">
             <label htmlFor="last_name">Last Name</label>
@@ -73,7 +78,12 @@ class ShopperForm extends React.Component {
                 placeholder="e.g. Adams"
                 value={this.state.last_name}
                 required
+                pattern="[A-Za-z]{2,}"
                 onChange={this.handleChange} />
+            <div className="invalid-feedback">
+               Please provide a valid last name.
+            </div>
+
         </div>
         <div className="form-group">
             <label htmlFor="email">Email</label>
@@ -83,15 +93,23 @@ class ShopperForm extends React.Component {
                 placeholder="e.g. example@gmail.com"
                 onChange={this.handleChange}
                 required />
+            <div className="invalid-feedback">
+               Please provide a valid email address.
+            </div>
+
         </div>
         <div className="form-group">
             <label htmlFor="phone">Cell Phone Number</label>
             <input id="phone" className="form-control"
-                type="text" name="phone"
+                type="tel" name="phone"
                 placeholder="e.g. 1-541-754-3010"
                 value={this.state.phone}
                 onChange={this.handleChange}
+                pattern="[0-9\-\+]{7,}"
                 required />
+             <div className="invalid-feedback">
+                Please provide a valid phone number.
+             </div>
         </div>
         <div className="form-group">
             <label htmlFor="region">Region</label>
