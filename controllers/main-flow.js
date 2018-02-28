@@ -13,14 +13,6 @@ const shopperChallengeRoutes = (app) => {
         res.render('main-form', { REGIONS });
     });
 
-    app.get('/old-form', (req, res) => {
-        // showing filled in application if available
-        if (req.session.email) {
-            return res.redirect(`/shopper?email=${req.session.email}`);
-        }
-        res.render('main-form-old', { REGIONS });
-    });
-
     app.post('/shopper', (req, res) => {
         // due to dev app nature and in general assumption,
         // that email is unique indentifier - let's delete
