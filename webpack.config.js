@@ -1,20 +1,31 @@
-var webpack = require('webpack');
-var path = require('path');
+const webpack = require('webpack');
+const nodeExternals = require('webpack-node-externals');
+const path = require('path');
 
 var BUILD_DIR = path.resolve(__dirname, 'public/js');
 var APP_DIR = path.resolve(__dirname, 'src/js');
 
 var config = {
-    entry: APP_DIR + '/form.jsx',
+    entry: path.resolve(__dirname, 'server.js'),
     output: {
-        path: BUILD_DIR,
-        filename: 'bundle.js'
+        path: path.resolve(__dirname, ''),
+        filename: 'server-w-react.js',
+         publicPath: '/'
     },
+    target: 'node',
+    externals: nodeExternals(),
+    plugins: [
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: `'development'`
+        }
+      })
+    ],
+    mode: 'development',
     module: {
         rules: [
             {
-                test: /\.jsx?/,
-                include: APP_DIR,
+                test: /\.js?/,
                 use: ['babel-loader']
             }
         ]

@@ -1,5 +1,10 @@
 import React from 'react';
 import {render} from 'react-dom';
+const Shopper = {
+    DATA: {},
+    STATUSES: [],
+    REGIONS: []
+};
 
 class ShopperForm extends React.Component {
   constructor(props) {
@@ -11,6 +16,7 @@ class ShopperForm extends React.Component {
   }
 
   handleChange(event) {
+    console.log('field change');
     this.setState({[event.target.name]: event.target.value});
   }
 
@@ -52,7 +58,7 @@ class ShopperForm extends React.Component {
     }
 
     return (
-      <form action="/shopper" method="POST" noValidate className="needs-validation" onSubmit={this.handleSubmit}>
+    <form action="/shopper" method="POST" noValidate className="needs-validation" onSubmit={this.handleSubmit}>
         <div className="form-group">
             <h2>Get paid to shop!</h2>
         </div>
@@ -123,7 +129,7 @@ class ShopperForm extends React.Component {
         <input type="submit" className="btn btn-primary btn-success btn--main-cta" value="Apply Now" />
       </form>
     );
-  }c
+  }
 }
 
-render(<ShopperForm />, document.getElementById('form-container'));
+export default ShopperForm;

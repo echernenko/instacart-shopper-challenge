@@ -1,5 +1,9 @@
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+import ShopperForm from '../src/js/form.jsx';
 const Shopper = require('../models/shopper');
 const Constants = require('../models/constants');
+const shopperForm = renderToString(<ShopperForm />);
 
 const shopperChallengeRoutes = (app) => {
     const { STATUSES } = Constants;
@@ -10,7 +14,7 @@ const shopperChallengeRoutes = (app) => {
         if (req.session.email) {
             return res.redirect(`/shopper?email=${req.session.email}`);
         }
-        res.render('main-form', { REGIONS });
+        res.render('main-form', { REGIONS, shopperForm });
     });
 
     app.post('/shopper', (req, res) => {
