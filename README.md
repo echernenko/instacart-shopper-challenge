@@ -1,5 +1,7 @@
 # Instacart Shopper Challenge
 
+Demo: http://instacart.echernenko.com/
+
 Instructions to run:
 - `npm start` in project folder
 - the server is accesible at localhost:3000
